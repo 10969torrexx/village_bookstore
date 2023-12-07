@@ -295,9 +295,9 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>The Crimes of Steamfield</h4>
-                <span>Alberto Rey</span>
-                <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+                <h4>The Wing Feather Saga</h4>
+                <span>Jon Snow</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
               </div>
             </div>
           </div><!-- End Chefs Member -->
@@ -314,9 +314,9 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>The Invisible Man</h4>
-                <span>Carl Laemmle</span>
-                <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+                <h4>Always Never</h4>
+                <span>Jordi Lafebre</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
               </div>
             </div>
           </div><!-- End Chefs Member -->
@@ -333,9 +333,9 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>The Fragmented ALiS</h4>
-                <span>ジャン・ローズ</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+                <h4>AE the RBound</h4>
+                <span>E. K Jonston</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
               </div>
             </div>
           </div><!-- End Chefs Member -->
