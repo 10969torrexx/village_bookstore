@@ -57,6 +57,9 @@
                   <p class="price">
                     ₱ {{ number_format($item->price, 2, '.', ',')  }}
                   </p>
+                  <div class="form-group">
+                    <a href="#" class="btn btn-danger">Buy Now</a>
+                  </div>
                 </div> 
               @endif
             @endforeach
@@ -75,7 +78,7 @@
 
             @foreach ($booksController->index() as $item)
               @if (strtolower($booksController->getGenre()[$item->genre - 1]) == strtolower($genre))
-                <div class="col-lg-4 menu-item">
+                <div class="col-lg-4 menu-item sa">
                   <a href="{{ $item->book_cover }}" class="glightbox"><img src="{{ $item->book_cover }}" class="menu-img img-fluid" alt=""></a>
                   <h4>{{ ucwords($item->title) }}</h4>
                   <p class="ingredients">
@@ -84,6 +87,9 @@
                   <p class="price">
                     ₱ {{ number_format($item->price, 2, '.', ',')  }}
                   </p>
+                  <div class="form-group">
+                    <a href="#" class="btn btn-danger">Buy Now</a>
+                  </div>
                 </div> 
               @endif
             @endforeach
