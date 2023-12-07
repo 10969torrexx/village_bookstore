@@ -58,14 +58,14 @@
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact Us</a></li>
           @guest
-              <li class="dropdown"><a href="#"><span>Get Started</span> <i class="bi bi-chevron-down"></i></a>
+              <li class="dropdown"><a href="#"><span class="text-danger">Get Started</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
                     <li><a href="{{ route('login') }}">Login</a></li>
                     <li><a href="{{ route('register') }}">Register</a></li>
                   </ul>
               </li>
           @else
-              <li class="dropdown"><a href="#"><span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
+              <li class="dropdown"><a href="#"><span class="text-danger">{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -88,6 +88,10 @@
     <div class="container">
       <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+          @guest
+          @else
+            <h3 class="text-danger"  data-aos="fade-up">Hi {{ Auth::user()->name }}</h3>
+          @endguest
           <h2 data-aos="fade-up">Welcome to Village Bookstore</h2>
           <p data-aos="fade-up" data-aos-delay="100">Find your next adventure, where every page hold magic</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
