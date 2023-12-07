@@ -88,8 +88,8 @@
     <div class="container">
       <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h2 data-aos="fade-up">Enjoy Your Reading and <br> Relaxation Come Visit Us</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <h2 data-aos="fade-up">Welcome to Village Bookstore</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Find your next adventure, where every page hold magic</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#book-a-table" class="btn-book-a-table">Buy a Book</a>
             <a href="https://www.youtube.com/watch?v=nZmFbkJ4HzY" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
