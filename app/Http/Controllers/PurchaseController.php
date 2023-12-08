@@ -31,14 +31,14 @@ class PurchaseController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {  
         $data = [
             'user_id' => Auth::user()->id,
             'book_id' => $request->book_id,
             'quantity' => $request->quantity,
             'total_price' => ($request->totalPrice),
             'payment' => doubleval($request->payment),
-            'change' => doubleval(substr($request->change, 1)) ,
+            'change' => doubleval(str_replace('₱', '', $request->change)) ,
         ];
         
         Purchase::create($data);
@@ -66,8 +66,13 @@ class PurchaseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        Purchase::where('id', $request->id)->delete();
+
+        return [
+            'status' => 200,
+            'message' => 'Purchase Deleted!'
+        ];
     }
 }
