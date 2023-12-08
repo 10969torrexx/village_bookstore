@@ -30,6 +30,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('pay-for-book', [PurchaseController::class, 'store'])->name('payForBook');
 
     Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchase-list');
+   
+    Route::get('/delete-purcahse', [PurchaseController::class, 'destroy'])->name('delete-purchase');
     
 });
 

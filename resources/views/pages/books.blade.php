@@ -168,6 +168,17 @@
                 })}`);
                 quantity.html(`<strong>Quantity: </strong> ${_quantity}`);
                 totalPrice.html(`<strong>Total Price: </strong>${0.00}`);
+
+                $('#payment').val(0);
+                $('#change').text((0).toLocaleString('en-PH', {
+                    style: 'currency',
+                    currency: 'PHP' 
+                }));
+
+                $('#finalChange').val((0).toLocaleString('en-PH', {
+                    style: 'currency',
+                    currency: 'PHP' 
+                }));
             }
         },
         error: function (xhr, status, error) {

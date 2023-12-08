@@ -18,7 +18,7 @@
                         <input type="text" class="form-control" hidden placeholder="productId" name="book_id" value="" id="finalProductId">
                         <input type="text" class="form-control" hidden placeholder="quantity" name="quantity" id="finalQuantity">
                         <input type="text" class="form-control" hidden placeholder="totalPrice" id="finalTotalPrice" name="totalPrice" id="finalQuantity">
-                        <input type="text" class="form-control" placeholder="change" id="finalChange" name="change">
+                        <input type="text" class="form-control" hidden placeholder="change" id="finalChange" name="change">
 
                         <p id="title"></p>
                         <p data-price="" id="price"></p>
