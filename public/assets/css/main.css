@@ -912,6 +912,12 @@ section {
   margin-bottom: 5px;
 }
 
+.ingredients {
+  font-family: var(--font-secondary);
+  color: #8d8d9b;
+  margin-bottom: 5px;
+}
+
 .menu .tab-content .menu-item .price {
   font-size: 24px;
   font-weight: 700;

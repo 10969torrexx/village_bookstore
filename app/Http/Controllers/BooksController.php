@@ -31,14 +31,28 @@ class BooksController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        $response = Books::where('id', $request->id)
+        ->first();
+
+        if ($response) {
+            return [
+                'status' => 200,
+                'data' => $response
+            ];
+        }
+
+        return [
+            'status' => 400,
+            'message' => 'Book not found!' 
+        ];
     }
 
     /**
