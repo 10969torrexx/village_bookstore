@@ -4,7 +4,6 @@
 @endphp
 
 
-
 <div class="container" data-aos="fade-up">
 
   <div class="section-header">
@@ -57,9 +56,17 @@
                   <p class="price">
                     ₱ {{ number_format($item->price, 2, '.', ',')  }}
                   </p>
-                  <div class="form-group">
-                    <a href="#" class="btn btn-danger">Buy Now</a>
-                  </div>
+
+                  @guest
+                  @else
+                    <div class="form-group">
+                      <button type="button" id="buyBookButton" data-id="{{ $item->id }}" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Buy Now
+                      </button>
+                      
+                    </div>
+                  @endguest
+
                 </div> 
               @endif
             @endforeach
@@ -87,9 +94,17 @@
                   <p class="price">
                     ₱ {{ number_format($item->price, 2, '.', ',')  }}
                   </p>
-                  <div class="form-group">
-                    <a href="#" class="btn btn-danger">Buy Now</a>
-                  </div>
+
+                  @guest
+                  @else
+                    <div class="form-group">
+                      <button type="button" id="buyBookButton" data-id="{{ $item->id }}" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Buy Now
+                      </button>
+                      
+                    </div>
+                  @endguest
+
                 </div> 
               @endif
             @endforeach
@@ -101,4 +116,105 @@
 
 
   </div>
+
+  @include('pages.books-detail')
 </div>
+
+<script>
+  var _quantity = 0;
+  var _price = 0;
+  const quantity = $('#quantity');
+  const title = $('#title');
+  const totalPrice = $('#totalPrice');
+  const price = $('#price');
+
+  $(document).on('click', '#buyBookButton', function(e) {
+    e.preventDefault();
+      $.ajax({
+        type: "GET",
+        url: "{{ route('getBookDetail') }}",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }, data: {
+            'id' : $(this).data('id')
+        },
+        success: function (response) {
+            if (response.status == 200) {
+              _quantity = 0;
+              _price = parseFloat(response.data.price);
+
+              $('#finalProductId').val(response.data.id);
+
+              const imageSynopsisContainer = $('#imageSynopsisContainer');
+              imageSynopsisContainer.html(' ');
+
+              // creating the image & synopis container
+                const image = $('<img>', {
+                  'src' : response.data.book_cover,
+                  'class' : 'col-8'
+                });
+                imageSynopsisContainer.append(image);
+
+                const synopsis = $('<p>', {
+                  'text' : response.data.synopis,
+                  'class' : 'ingredients mt-1'
+                });
+                imageSynopsisContainer.append(synopsis);
+              // creating the book details
+                title.html(`<strong>Title:</strong> ${response.data.title}`);
+                price.html(`<strong>Price:</strong> ${response.data.price.toLocaleString('en-PH', {
+                  style: 'currency',
+                  currency: 'PHP'
+                })}`);
+                console.l
+                quantity.html(`<strong>Quantity: </strong> ${_quantity}`);
+                totalPrice.html(`<strong>Total Price: </strong>${0.00}`);
+            }
+        },
+        error: function (xhr, status, error) {
+            toastr.error('Cannot fetch attendance (Error: 500)');
+        }
+      });
+  });
+
+  $('#addOne').click(function(e) {
+    e.preventDefault();
+    _quantity ++;
+    quantity.html(`<strong>Quantity: </strong> ${_quantity}`);
+    totalPrice.html(`<strong>Total Price: </strong>${calculateTotalPrice().toLocaleString('en-PH', {
+      style : 'currency',
+      currency : 'PHP'
+    })}`);
+    $('#finalTotalPrice').val(calculateTotalPrice());
+    $('#finalQuantity').val(_quantity);
+  });
+
+  $('#minusOne').click(function(e) {
+    e.preventDefault();
+    _quantity = (_quantity > 0 ) ? _quantity-= 1: 0;
+    quantity.html(`<strong>Quantity: </strong> ${_quantity}`);
+    totalPrice.html(`<strong>Total Price: </strong>${calculateTotalPrice().toLocaleString('en-PH', {
+      style : 'currency',
+      currency : 'PHP'
+    })}`);
+    $('#finalTotalPrice').val(calculateTotalPrice());
+    $('#finalQuantity').val(_quantity);
+  });
+
+  $(document).on('input', '#payment', function() {
+    $('#change').text(calculateChange().toLocaleString('en-PH', {
+        style: 'currency',
+        currency: 'PHP' 
+    }));
+
+    $('#finalChange').val(calculateChange());
+  });
+
+  function calculateTotalPrice() {
+    return _price * _quantity;
+  }
+  
+  function calculateChange() {
+    return  (calculateTotalPrice() > parseFloat($('#payment').val())) ? 'Insufficient Payment!' : parseFloat($('#payment').val()) - calculateTotalPrice();
+  }
+</script>
