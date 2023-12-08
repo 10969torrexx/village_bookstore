@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\PurchaseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('get-book-details', [BooksController::class, 'show'])->name('getBookDetail');
 
-    Route::post('pay-for-book', [BooksController::class, 'store'])->name('payForBook');
+    Route::post('pay-for-book', [PurchaseController::class, 'store'])->name('payForBook');
+
+    Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchase-list');
+    
 });
 
