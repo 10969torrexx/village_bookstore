@@ -166,7 +166,6 @@
                   style: 'currency',
                   currency: 'PHP'
                 })}`);
-                console.l
                 quantity.html(`<strong>Quantity: </strong> ${_quantity}`);
                 totalPrice.html(`<strong>Total Price: </strong>${0.00}`);
             }
@@ -207,7 +206,10 @@
         currency: 'PHP' 
     }));
 
-    $('#finalChange').val(calculateChange());
+    $('#finalChange').val(calculateChange().toLocaleString('en-PH', {
+        style: 'currency',
+        currency: 'PHP' 
+    }));
   });
 
   function calculateTotalPrice() {
