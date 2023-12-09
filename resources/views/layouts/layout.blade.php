@@ -61,6 +61,7 @@
           @else
               <li class="dropdown"><a href="#"><span class="text-danger">{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
+                    <li><a href="{{ route('viewProfile') }}">Profile</a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                           @csrf
