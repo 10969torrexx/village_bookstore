@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchase-list');
    
     Route::get('/delete-purcahse', [PurchaseController::class, 'destroy'])->name('delete-purchase');
+    
+    Route::get('/view-profile', [UsersController::class, 'index'])->name('viewProfile');
+    Route::post('/update-profile', [UsersController::class, 'update'])->name('updateProfile');
     
 });
 
